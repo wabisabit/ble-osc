@@ -1,0 +1,12 @@
+{
+  "name": "ble-osc",
+  "version": "0.0.1",
+  "description": "Processes messages received through Bluetooth LE and resends them as OSC",
+  "main": "app.js",
+  "author": "Roman Random",
+  "license": "ISC",
+  "dependencies": {
+    "noble": "^1.8.1",
+    "osc": "^2.2.0"
+  }
+}
