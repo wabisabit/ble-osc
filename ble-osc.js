@@ -19,7 +19,6 @@ noble.on('stateChange', state => {
 	if ( state === 'poweredOn' ) {
 
 		noble.startScanning( [], false, error => {
-			console.log( 'Available devices:' );
 			if ( error !== null )	console.error( error );
 		});
 
@@ -37,7 +36,7 @@ udpPort.open()
 noble.on( 'discover', peripheral => {
 
 	if ( peripheral.connectable ) {
-		console.log( peripheral.advertisement.localName );
+		console.log( 'Discovered: ' + peripheral.advertisement.localName );
 	}
 
 	if ( peripheral.advertisement.localName === bleName ) {
