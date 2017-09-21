@@ -8,6 +8,7 @@ let noble = require('noble');
 let osc = require('osc');
 let udpReady = false;
 let buffer = '';
+let receiving = false;
 
 const bleName = 'HMSoft'; // Change to name of Bluetooth device
 const oscPort = 57121;
@@ -71,8 +72,14 @@ noble.on( 'discover', peripheral => {
 
 						});
 
-						// TODO if doesn't start receiving data restart connection
+						setTimeout( () => {
+							if ( !receiving ) {
+								peripheral.disconnect();
+							}
+						}, 3000 );
 						characteristic.on( 'data', ( data, isNotification ) => {
+
+							receiving = true;
 
 							buffer += data.toString();
 

@@ -62,7 +62,7 @@ void dmpDataReady() {
 void setup(){
   
   Serial.begin( 115200 );
-  BTSerial.begin( 19200 ); // Trick to make it work on a 8MHz Pro Mini. Use 9600 for 16MHz boards like Uno
+  BTSerial.begin( 9600 ); // Trick to make it work on a 8MHz Pro Mini. Use 9600 for 16MHz boards like Uno
   
   Fastwire::setup(400, true);
 
